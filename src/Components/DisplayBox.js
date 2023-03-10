@@ -8,9 +8,10 @@ export default function DisplayBox() {
       <Container maxWidth="md">
         <Box
           sx={{
-            width: 300,
+            p:10,
             height: 300,
-            backgroundColor: colors.amber[50],
+            border: 10,
+            borderColor: colors.grey[50],
             '&:hover': {
               backgroundColor: colors.amber[100],
               opacity: [0.9, 0.8, 0.7],
