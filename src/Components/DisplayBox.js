@@ -1,23 +1,32 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import {colors} from '@mui/material'
-import { Container } from '@mui/system';
+import './DisplayBox.css';
+import { Box, Container, Slide, Typography, Grow, colors } from './mui-index';
 
-export default function DisplayBox() {
+export default function DisplayBox({imgSrc, text}) {
+  const containerRef = React.useRef(null);
     return (
-      <Container maxWidth="md">
+      <Container >
         <Box
+          justifyContent={'center'}
           sx={{
-            p:10,
-            height: 300,
-            border: 10,
-            borderColor: colors.grey[50],
-            '&:hover': {
-              backgroundColor: colors.amber[100],
-              opacity: [0.9, 0.8, 0.7],
-            }
+            height: '40vh',
+            border: 2,
+            display: 'flex',
+            borderRadius: '100px',
+            borderColor: colors.amber[50]
           }}
-        />
+          ref={containerRef}
+        >
+          <Slide 
+            direction="up" 
+            in={true}
+            container={containerRef.current} >
+            <img 
+              src={process.env.PUBLIC_URL + '/' + imgSrc + '.png'} 
+              alt={imgSrc}
+              />
+          </Slide>
+        </Box>
       </Container>
     );
 }

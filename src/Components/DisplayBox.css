@@ -1,0 +1,10 @@
+.Container {
+    max-width: md;
+    max-height: 33vh;
+    justify-content: center;
+}
+
+img {
+  object-fit: cover;
+  border-radius: 100px;
+}
