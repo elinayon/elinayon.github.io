@@ -1,22 +1,13 @@
 import * as React from 'react';
 import './DisplayBox.css';
 import { Box, Container, Slide, Typography, Grow, colors } from './mui-index';
+import { CssBaseline } from '@mui/material';
 
 export default function DisplayBox({imgSrc, text}) {
   const containerRef = React.useRef(null);
     return (
-      <Container >
-        <Box
-          justifyContent={'center'}
-          sx={{
-            height: '40vh',
-            border: 2,
-            display: 'flex',
-            borderRadius: '100px',
-            borderColor: colors.amber[50]
-          }}
-          ref={containerRef}
-        >
+      <Container sx={{display: 'flex'}}>
+        <Box ref={containerRef} >
           <Slide 
             direction="up" 
             in={true}

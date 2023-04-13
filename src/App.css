@@ -1,4 +1,5 @@
 .App {
+  background-color: #fff2be;
 }
 
 .App-logo {
@@ -6,8 +7,9 @@
   pointer-events: none;
 }
 
-.App-header {
-  background-color: #fff2be;
+.Main-body {
+  background-color: #fffde8  ;
+  min-height: 97.8vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,13 +17,7 @@
   font-size: calc(10px + 2vmin);
 }
 
-.Main-body {
-  background-color: #fffde8  ;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App-footer {
+  min-height: 2vh;
 }
 

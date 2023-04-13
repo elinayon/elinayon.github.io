@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import DisplayBox from './Components/DisplayBox';
-import TimelineFooter from './Components/TimelineFooter';
+import PaginationFooter from './Components/PaginationFooter';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
           text={"hello this is a bio placeholder"}/>
       </section>
       <div className='App-footer'>
-        <TimelineFooter/>
+        <PaginationFooter/>
       </div>
     </div>
   );

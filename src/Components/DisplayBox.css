@@ -1,10 +1,21 @@
-.Container {
-    max-width: md;
-    max-height: 33vh;
-    justify-content: center;
+.MuiContainer-root {
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiBox-root {
+  max-height: 40vh;
+  max-width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid;
+  border-color: #fff9e2;
+  border-width: 10px;
+  border-radius: 100px; 
 }
 
 img {
   object-fit: cover;
-  border-radius: 100px;
+  border-radius: 90px;
 }
