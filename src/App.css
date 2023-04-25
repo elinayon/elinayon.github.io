@@ -1,23 +1,30 @@
-.App {
-  background-color: #fff2be;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.Main-body {
+.App {
   background-color: #fffde8  ;
-  min-height: 97.8vh;
+  height: 100vh;
+  min-height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-flow: column;
 }
 
-.App-footer {
-  min-height: 2vh;
+.App .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+.App .Main-body {
+  flex-grow: 1;
+  display: flex;
+}
+
+.App .App-footer {
+  background-color: #fff0be;
+  height: min-content;
+}
+
 

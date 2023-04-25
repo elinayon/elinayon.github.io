@@ -90,13 +90,15 @@ QontoStepIcon.propTypes = {
 
 const steps = ['Introduction', 'Background', 'Experience'];
 
-export default function Pagination() {
+export default function Pagination(props) {
   return (
-    <Stack sx={{ width: '60%' }} spacing={4}>
-      <Stepper activeStep={1} connector={<QontoConnector />}>
+    <Stack sx={{ width: '60%'}} spacing={4}>
+      <Stepper activeStep={props.currentStep} connector={<QontoConnector />}>
         {steps.map((label) => (
           <Step key={label}>
-            <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
+            <StepLabel StepIconComponent={QontoStepIcon}>
+              {label}
+            </StepLabel>
           </Step>
         ))}
       </Stepper>
