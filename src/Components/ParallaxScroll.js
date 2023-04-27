@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from './libraries';
+import './ParallaxScroll.css';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -30,30 +31,6 @@ let slideID = 0;
 const InitHeader = () => {
 
     // animate the logo and fake burger button into place
-    
-    // let tl = gsap.timeline({delay: 0.5});
-    
-    // tl.from('.logo', {
-    //     y: -40,
-    //     opacity: 0,
-    //     duration: 2,
-    //     ease: 'power4'
-    // })
-    // .from('.nav-btn__svg rect', {
-    //     scale: 0,
-    //     transformOrigin: "center right",
-    //     duration: 0.6,
-    //     ease: 'power4',
-    //     stagger: 0.1
-    // }, 0.6)
-    // .to('.nav-rect', {
-    //     scale: 0.8,
-    //     transformOrigin: "center left",
-    //     duration: 0.4,
-    //     ease: 'power2',
-    //     stagger: 0.1
-    // }, "-=0.6")
-
 
     // React Hooks
     const tl = useRef();
@@ -108,7 +85,7 @@ const InitHeader = () => {
     }, []);
 
     return (
-        <header class="header" ref={el}>
+        <div class="header" ref={el}>
             <div class="logo">Elina Yon</div>
             <a href="#" class="nav-btn">
                 <svg class="nav-btn__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 30">
@@ -117,31 +94,8 @@ const InitHeader = () => {
                     <rect width="40" height="2" x="8" y="20" fill="#242423" />
                 </svg>
             </a>
-        </header>
+        </div>
     );
-
-    
-    // create mouse animations for the faux burger button
-    
-    // let navBtn = select('.nav-btn');
-    
-    // navBtn.addEventListener("mouseover", (e) => {
-    //     gsap.to('.nav-rect', {
-    //         scaleX: 1,
-    //         transformOrigin: "top left",
-    //         duration: 0.4, 
-    //         ease: "power4"
-    //     });
-    // });
-    
-    // navBtn.addEventListener("mouseout", (e) => {
-    //     gsap.to('.nav-rect', {
-    //         scaleX: 0.8,
-    //         transformOrigin: "top left",
-    //         duration: 0.6, 
-    //         ease: "power4"
-    //     });
-    // });
 }
 
 export { InitHeader };
@@ -407,7 +361,7 @@ function scrollTop() {
 function initKeys() {
     document.addEventListener('keydown', (e) => {
         e.preventDefault();
-        if(e.key == 40) { //down arrow to next slide
+        if(e.key === 40) { //down arrow to next slide
             if(slideID <= slides.length) {
                 slideID++;
                 gsap.to(window, {
@@ -419,7 +373,7 @@ function initKeys() {
                 });
             }
         }
-        else if(e.key == 38) { // up arrow to top
+        else if(e.key === 38) { // up arrow to top
             slideID = 0;
             scrollTop();
         }
