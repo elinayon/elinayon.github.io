@@ -29,3 +29,5 @@ export {
     MDBIcon,
     MDBBtn
   } from 'mdb-react-ui-kit';
+export { ScrollTrigger } from 'gsap/ScrollTrigger';
+export { ScrollToPlugin } from 'gsap/ScrollToPlugin';

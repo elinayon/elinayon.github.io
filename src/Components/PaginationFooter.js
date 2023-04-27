@@ -2,7 +2,7 @@ import React from 'react';
 import {
   MDBFooter,
   MDBIcon,
-} from './mui-index';
+} from './libraries';
 import { amber } from '@mui/material/colors';
 import Pagination from './Pagination';
 

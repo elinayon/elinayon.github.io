@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './DisplayBox.css';
-import { Box, Container, Slide, Typography } from './mui-index';
+import { Box, Container, Slide, Typography } from './libraries';
 
 export default function DisplayBox({imgSrc, text}) {
   const containerRef = React.useRef(null);
