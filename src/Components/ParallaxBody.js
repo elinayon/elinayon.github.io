@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from './libraries';
-import './ParallaxScroll.css';
+import './ParallaxBody.css';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -60,32 +60,33 @@ const InitHeader = () => {
                 ease: 'power2',
                 stagger: 0.1
             }, "-=0.6");
-        }, el);
 
-        // create mouse animations for the faux burger button
-        let navBtn = select('.nav-btn');
-        
-        navBtn.addEventListener("mouseover", (e) => {
-            gsap.to('.nav-rect', {
-                scaleX: 1,
-                transformOrigin: "top left",
-                duration: 0.4, 
-                ease: "power4"
+            // create mouse animations for the faux burger button
+            let navBtn = select('.nav-btn');
+            
+            navBtn.addEventListener("mouseover", (e) => {
+                gsap.to('.nav-rect', {
+                    scaleX: 1,
+                    transformOrigin: "top left",
+                    duration: 0.4, 
+                    ease: "power4"
+                });
             });
-        });
-        
-        navBtn.addEventListener("mouseout", (e) => {
-            gsap.to('.nav-rect', {
-                scaleX: 0.8,
-                transformOrigin: "top left",
-                duration: 0.6, 
-                ease: "power4"
+            
+            navBtn.addEventListener("mouseout", (e) => {
+                gsap.to('.nav-rect', {
+                    scaleX: 0.8,
+                    transformOrigin: "top left",
+                    duration: 0.6, 
+                    ease: "power4"
+                });
             });
-        });
+        }, el);
+        return () => ctx.revert(); // <- Cleanup!
     }, []);
 
     return (
-        <div class="header" ref={el}>
+        <header class="header" ref={el}>
             <div class="logo">Elina Yon</div>
             <a href="#" class="nav-btn">
                 <svg class="nav-btn__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 30">
@@ -94,67 +95,83 @@ const InitHeader = () => {
                     <rect width="40" height="2" x="8" y="20" fill="#242423" />
                 </svg>
             </a>
-        </div>
+        </header>
     );
 }
 
-export { InitHeader };
+const InitIntro = () => {
+    // React Hooks
+    const tl = useRef();
+    const el = useRef();
+    const stl = useRef();
 
-function initIntro() {
-    
-    // animate the intro elements into place
-    
-    let tl = gsap.timeline({delay: 1.2});
-    
-    tl.from('.intro-line', {
-        // x: 100,
-        y: 400,
-        ease: 'power4',
-        duration: 3
-    })
-    .from('.intro__txt', {
-        x: -100,
-        opacity: 0,
-        ease: 'power4',
-        duration: 3
-    }, 0.7)
-    .from('.intro__img--1', {
-        // x: -50,
-        y: 50,
-        opacity: 0,
-        ease: 'power2',
-        duration: 10
-    }, 1)
-    .from('.intro__img--2', {
-        // x: 50,
-        y: -50,
-        opacity: 0,
-        ease: 'power2',
-        duration: 10
-    }, 1);
-    
-    // set up scrollTrigger animation for the when the intro scrolls out
-    
-    let stl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.intro',
-            scrub: 1,
-            start: "top bottom", // position of trigger meets the scroller position
-            end: "bottom top"
-        }
-    });
-    
-    stl.to('.intro__title', {
-        x: 400,
-        ease: 'power4.in',
-        duration: 3,
-        
-    })
-    .to('.intro__txt', {
-        y: 100,
-        ease: 'power4.in',
-        duration: 3,
-    }, 0);
+    useLayoutEffect( () => {
+        const ctx = gsap.context ( () => {
+
+            // animate the intro elements into place
+            tl.current = gsap
+            .timeline({delay: 1.2})
+            // .from('.intro-line', {
+            //     x: 100,
+            //     y: 400,
+            //     ease: 'power4',
+            //     duration: 3
+            // })
+            .from('.intro__txt', {
+                x: -100,
+                opacity: 0,
+                ease: 'power4',
+                duration: 3
+            }, 0.7)
+            .from('.intro__img--1', {
+                // x: -50,
+                y: 50,
+                opacity: 0,
+                ease: 'power2',
+                duration: 10
+            }, 1);
+            // .from('.intro__img--2', {
+            //     // x: 50,
+            //     y: -50,
+            //     opacity: 0,
+            //     ease: 'power2',
+            //     duration: 10
+            // }, 1);
+
+            // set up scrollTrigger animation for the when the intro scrolls out
+            stl.current = gsap
+            .timeline({
+                scrollTrigger: {
+                    trigger: '.intro',
+                    scrub: 1,
+                    start: "top bottom", // position of trigger meets the scroller position
+                    end: "bottom top"
+                }
+            })
+            .to('.intro__title', {
+                x: 400,
+                ease: 'power4.in',
+                duration: 3,
+                
+            })
+            .to('.intro__txt', {
+                y: 100,
+                ease: 'power4.in',
+                duration: 3,
+            }, 0);
+        }, el);
+        return () => ctx.revert(); // <- Cleanup!
+    }, []);
+
+    return (
+        <div class="intro slide--0" id="slide-0" ref={el}>
+            <div class="intro__content" >
+                <h1 class="intro__title">Elina Yon</h1>
+                <p class="intro__txt">Duda is going from strength to strength. Whether it’s in the prestigious gallery in the new World Trade Centre in New York or at an international art fair in Chicago or Hong Kong, people recognize the original response to life in Duda’s work, and go away feeling animated and energized by his vibrant creations.</p>
+            </div>
+            <img class="intro__img intro__img--1" src="elina_bear_clear.png" />
+        </div>
+    );
 }
 
 function initLinks() {
@@ -383,7 +400,7 @@ function initKeys() {
 function init() {
     gsap.set(stage, { autoAlpha: 1 });
     InitHeader();
-    initIntro();
+    InitIntro();
 	initLinks();
 	initSlides();
 	initParallax();
@@ -393,3 +410,12 @@ function init() {
 window.onload = () => {
 	init();
 };
+
+export default function ParallaxBody() {
+    return (
+        <div class="stage">
+            <InitHeader/>
+            <InitIntro/>
+        </div>
+    );
+  }
