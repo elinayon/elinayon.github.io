@@ -42,8 +42,22 @@
   
   .stage {
     position: relative;
-    background: white;
-    visibility: hidden;
+    width: 100%;
+    inset: 0px;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    scroll-behavior: auto;
+    translate: none; 
+    rotate: none; 
+    scale: none; 
+    /* transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);  */
+    box-sizing: border-box; 
+    width: 100%; 
+    overflow: visible; 
+    opacity: 1; 
+    visibility: inherit;
+    
   }
   
   /*  ========================================================================== 
@@ -104,10 +118,10 @@
   }
   
   .intro__content {
-    /* position: absolute; */
+    position: absolute;
     right: 8%;
-    bottom: 15%;
-    z-index: 3;
+    bottom: 36%;
+    /* z-index: 4; */
   }
   @media all and (max-width: 768px) {
     .intro__content {
@@ -142,9 +156,9 @@
   }
   
   .intro__img--1 {
-    z-index: 2;
-    left: 10%;
-    bottom: 15%;
+    z-index: 3;
+    left: 3%;
+    bottom: 28%;
   }
   @media all and (max-width: 768px) {
     .intro__img--1 {
@@ -164,10 +178,11 @@
       bottom: 60vh;
     }
   }
-  
+
   .intro__txt {
     max-width: 35vw;
-    margin-left: 25vw;
+    margin-left: 60vw;
+    z-index: 4;
   }
   @media all and (max-width: 768px) {
     .intro__txt {
