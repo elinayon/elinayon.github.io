@@ -167,7 +167,7 @@ const InitIntro = () => {
         <div class="intro slide--0" id="slide-0" ref={el}>
             <div class="intro__content" >
                 <h1 class="intro__title">Elina Yon</h1>
-                <p class="intro__txt">Duda is going from strength to strength. Whether it’s in the prestigious gallery in the new World Trade Centre in New York or at an international art fair in Chicago or Hong Kong, people recognize the original response to life in Duda’s work, and go away feeling animated and energized by his vibrant creations.</p>
+                <p class="intro__txt">Hi, welcome to my website! I am a software engineer based out of the San Francisco Bay Area. Scroll through to learn more!</p>
             </div>
             <img class="intro__img intro__img--1" src="elina_bear_clear.png" />
         </div>

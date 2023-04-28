@@ -119,9 +119,8 @@
   
   .intro__content {
     position: absolute;
-    right: 8%;
-    bottom: 36%;
-    /* z-index: 4; */
+    /* right: 8%; */
+    bottom: 38%;
   }
   @media all and (max-width: 768px) {
     .intro__content {
@@ -134,6 +133,7 @@
     overflow: hidden;
     letter-spacing: -2.3vw;
     padding-right: 2.3vw;
+    z-index: 1;
   }
   @media all and (max-width: 768px) {
     .intro__title {
@@ -144,7 +144,7 @@
   .intro__img {
     position: absolute;
     max-height: 40vh;
-    max-width: 60vw;
+    max-width: 70vw;
     /* width: 35%; */
     /* max-width: 390px; */
     /* height: auto; */
@@ -157,8 +157,8 @@
   
   .intro__img--1 {
     z-index: 3;
-    left: 3%;
-    bottom: 28%;
+    left: 5vw;
+    bottom: 30%;
   }
   @media all and (max-width: 768px) {
     .intro__img--1 {
@@ -180,8 +180,11 @@
   }
 
   .intro__txt {
-    max-width: 35vw;
-    margin-left: 60vw;
+    top: -2vh;
+    max-width: 16vw;
+    margin-left: 72vw;
+    position: relative;
+    background: rgba(255, 253, 232, 0.3);
     z-index: 4;
   }
   @media all and (max-width: 768px) {
