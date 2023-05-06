@@ -5,11 +5,11 @@
 
 .App {
   background-color: #fffde8  ;
-  height: 100vh;
+  /* height: 100vh; */
   min-height: 100%; 
   display: flex;
   flex-flow: column; 
-}
+} 
 
 .App .section {
   display: flex;
@@ -18,13 +18,16 @@
 }
 
 .App .Main-body {
-  flex-grow: 1;
+  flex-grow: 1; 
   display: flex;
 }
 
 .App .App-footer {
   background-color: #fff0be;
   height: min-content;
+  position:fixed;
+  bottom:0;
+  width:100%;
 }
 
 

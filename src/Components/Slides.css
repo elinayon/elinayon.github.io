@@ -1,0 +1,148 @@
+html {
+    overflow-y: scroll;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+  body {
+    overflow-y: hidden;
+    position: relative;
+    overflow-x: hidden;
+  }
+  html,
+  body {
+    margin: 0;
+  }
+  
+  .container {
+    width: 400vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .firstContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background: yellow; */
+  }
+  
+  .lastContainer {
+    display: flex;
+    height: 100vh;
+    /* background: yellow; */
+  }
+  
+  .slide {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .intro {
+    position: relative;
+    padding: 5vw;
+    /* background: #c0d7d8; */
+    overflow: hidden;
+  }
+  
+  .intro__content {
+    position: absolute;
+    /* right: 8%; */
+    bottom: 38%;
+  }
+  
+  @media all and (max-width: 768px) {
+    .intro__content {
+      right: auto;
+    }
+  }
+  
+  .intro__title {
+    font-size: 25vw;
+    overflow: hidden;
+    letter-spacing: -2.3vw;
+    padding-right: 2.3vw;
+    z-index: 1;
+  }
+  
+  @media all and (max-width: 768px) {
+    .intro__title {
+      margin-bottom: 5vh;
+    }
+  }
+  
+  .intro__img {
+    position: absolute;
+    max-height: 40vh;
+    max-width: 70vw;
+    /* width: 35%; */
+    /* max-width: 390px; */
+    /* height: auto; */
+  }
+  
+  @media all {
+    .intro__img {
+      width: 80vw;
+    }
+  }
+  
+  .intro__img--1 {
+    z-index: 3;
+    left: 5vw;
+    bottom: 30%;
+  }
+  
+  @media all and (max-width: 768px) {
+    .intro__img--1 {
+      left: 50%;
+      bottom: 50vh;
+    }
+  }
+  
+  .intro__img--2 {
+    z-index: 1;
+    left: 30%;
+    bottom: 40%;
+  }
+  
+  @media all and (max-width: 768px) {
+    .intro__img--2 {
+      left: 70%;
+      bottom: 60vh;
+    }
+  }
+  
+  .intro__txt {
+    top: -2vh;
+    max-width: 16vw;
+    margin-left: 72vw;
+    position: relative;
+    background: rgba(255, 253, 232, 0.3);
+    z-index: 4;
+  }
+  
+  @media all and (max-width: 768px) {
+    .intro__txt {
+      max-width: 80vw;
+      margin-left: 5vw;
+    }
+  }
+  
+  /* .blue {
+    background: blue;
+  }
+  .red {
+    background: red;
+  }
+  .orange {
+    background: orange;
+  }
+  .purple {
+    background: purple;
+  }
+  .blue {
+    background-color: blue;
+  } */
+  
