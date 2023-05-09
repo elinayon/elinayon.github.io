@@ -134,7 +134,6 @@ const InitIntro = () => {
             // }, 1);
             let intro = select('.intro');
             // set up scrollTrigger animation for the when the intro scrolls out
-            console.log(intro);
             stl.current = gsap
                 .timeline({
                     scrollTrigger: {
@@ -678,11 +677,55 @@ export default function ParallaxBody() {
 
 function Slides() {
     const component = useRef();
+    const tl = useRef();
     const slider = useRef();
 
     useLayoutEffect(() => {
         let ctx = gsap.context((self) => {
             let slides = gsap.utils.toArray(".slide");
+
+            slides.forEach((slide, i) => {
+                tl.current = gsap
+                    .timeline({ delay: 1.2 })
+                    .from(('.col__content-title'), {
+                        ease: "power4",
+                        y: "+=5vh",
+                        duration: 2.5,
+                    })
+                    .from(('.col__content-txt'), {
+                        x: "+=2vw",
+                        y: 30,
+                        duration: 2,
+                        ease: "power4"
+                    }, 0.4)
+                    .to(slide.querySelectorAll('.slide__scroll-line'), {
+                        scaleY: 0.6,
+                        transformOrigin: "bottom left",
+                        duration: 2.5,
+                        ease: "elastic(1,0.5)"
+                    }, 1.4)
+
+                let imageWrappers = gsap.utils.toArray('.col__image-wrap');
+
+                gsap.fromTo(imageWrappers, {
+                    x: "-60vw"
+                }, {
+                    x: "-10vw",
+                    scrollTrigger: {
+                        trigger: slide,
+                        scrub: true,
+                        start: "top bottom", // position of trigger meets the scroller position
+                        snap: {
+                            snapTo: 0.5, // 0.5 'cause the scroll animation range is 200vh for parallax effect
+                            duration: 1,
+                            ease: 'power4.inOut'
+                        }
+                    },
+                    ease: 'none'
+                })
+            });
+
+
             gsap
                 .timeline({
                     scrollTrigger: {
@@ -690,24 +733,6 @@ function Slides() {
                         start: "40% 50%", // position of trigger meets the scroller position
                     }
                 })
-                // .from(self.selector('.col__content-title'), {
-                //     ease: "power4",
-                //     x: "+=5vh",
-                //     duration: 2.5,
-                // })
-                // .from(self.selector('.col__content-txt'), {
-                //     x: 100,
-                //     y: 50,
-                //     opacity: 0,
-                //     duration: 2,
-                //     ease: "power4"
-                // }, 0.4)
-                // .to(slide.querySelectorAll('.slide__scroll-line'), {
-                //     scaleX: 0.6,
-                //     transformOrigin: "bottom left",
-                //     duration: 2.5,
-                //     ease: "elastic(1,0.5)"
-                // }, 1.4)
                 .to(slides,
                     {
                         xPercent: -100 * (slides.length - 1),
@@ -715,28 +740,41 @@ function Slides() {
                         scrollTrigger: {
                             trigger: slider.current,
                             pin: true,
-                            scrub: 1,
+                            // scrub: 0.8,
+                            scrub: true,
                             snap: 1 / (slides.length - 1),
                             end: () => "+=" + slider.current.offsetWidth
                         }
-                    });
+                    }
+                );
         }, component);
         return () => ctx.revert();
     });
 
     return (
-        <div className="slides" ref={component}>
-            <div ref={slider}>
+        <div ref={component}>
+            <div className="slides" ref={slider}>
                 <InitIntro />
                 <div className="slide slide--1" id="slide-1" >
-                    <div className="col col--1">
-                        <h2 className="col__content-title">Background</h2>
-                        <p className="col__content-txt">Education: UC Berkeley</p>
-                        <div className="slide__scroll-line"></div>
+                    <div class="col col--1">
+                        <div className="col__content col__content--1">
+                            <h2 className="col__content-title">Background</h2>
+                            <div className="col__content-wrap">
+                                <p className="col__content-txt">
+                                    Education: UC Berkeley Education: UC Berkeley Education: UC Berkeley Education: UC Berkeley Education: UC Berkeley
+                                </p>                                
+                                <a href="#" class="slide-link">
+                                    <div class="slide-link__circ"></div>
+                                    <div class="slide-link__line"></div>
+                                </a>
+                            </div>
+
+                            {/* <div className="slide__scroll-line"></div> */}
+                        </div>
                     </div>
                     <div className="col col--2">
                         <div className="col__image-wrap">
-                            <img className="intro__img intro__img--1" src="sham-pain.jpg" />
+                            <img className="img img--1" src="sham-pain.jpg" />
                         </div>
                     </div>
                 </div>
