@@ -15,9 +15,6 @@ function App() {
     <div className="App">
       <div className='Main-body'>
         <InitHeader/>
-        {/* <ParallaxBody/> */}
-        {/* <InitHeader/>
-        <InitIntro/> */}
         <Slides/>
       </div>
       <div className='App-footer'>

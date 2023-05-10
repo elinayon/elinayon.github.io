@@ -515,26 +515,6 @@ function init() {
     InitKeys();
 }
 
-const TransitionContext = createContext({ completed: false });
-
-export const TransitionProvider = ({ children }) => {
-    const [completed, setCompleted] = useState(false);
-
-    const toggleCompleted = (value) => {
-        setCompleted(value);
-    };
-
-    return (
-        <TransitionContext.Provider
-            value={{
-                toggleCompleted,
-                completed,
-            }}
-        >
-            {children}
-        </TransitionContext.Provider>
-    );
-};
 
 export default function ParallaxBody() {
     // const main = useRef();
@@ -678,6 +658,7 @@ export default function ParallaxBody() {
 function Slides() {
     const component = useRef();
     const tl = useRef();
+    const stl = useRef();
     const slider = useRef();
 
     useLayoutEffect(() => {
@@ -747,6 +728,32 @@ function Slides() {
                         }
                     }
                 );
+
+            let slide = select('.slide');
+            // set up scrollTrigger animation for the when the intro scrolls out
+            stl.current = gsap
+                .timeline({
+                    scrollTrigger: {
+                        trigger: slide,
+                        scrub: 1,
+                        start: "left right", // position of trigger meets the scroller position
+                        end: "right left"
+                    }
+                })
+                .fromTo('.col__content-title', {
+                    x: 400,
+                }, {
+                    x:0,
+                    ease: 'power4.in',
+                    duration: 3,
+                });
+                // .fromTo('.col__content-txt', {
+                //     x: 200,
+                // }, {
+                //     x:'32px',
+                //     ease: 'power4.in',
+                //     duration: 3,
+                // });
         }, component);
         return () => ctx.revert();
     });
@@ -762,7 +769,7 @@ function Slides() {
                             <div className="col__content-wrap">
                                 <p className="col__content-txt">
                                     Education: UC Berkeley Education: UC Berkeley Education: UC Berkeley Education: UC Berkeley Education: UC Berkeley
-                                </p>                                
+                                </p>
                                 <a href="#" class="slide-link">
                                     <div class="slide-link__circ"></div>
                                     <div class="slide-link__line"></div>
@@ -778,8 +785,29 @@ function Slides() {
                         </div>
                     </div>
                 </div>
-                <div className="slide orange">TWO</div>
-                <div className="slide purple">THREE</div>
+                <div className="slide slide--2" id="slide-2" >
+                    <div class="col col--1">
+                        <div className="col__content col__content--2">
+                            <h2 className="col__content-title">Experience</h2>
+                            <div className="col__content-wrap">
+                                <p className="col__content-txt">
+                                    Software Engineer: Microsoft
+                                </p>
+                                <a href="#" class="slide-link">
+                                    <div class="slide-link__circ"></div>
+                                    <div class="slide-link__line"></div>
+                                </a>
+                            </div>
+
+                            {/* <div className="slide__scroll-line"></div> */}
+                        </div>
+                    </div>
+                    <div className="col col--2">
+                        <div className="col__image-wrap">
+                            <img className="img img--1" src="elina-coffee.jpeg" />
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className="lastContainer">Last Container</div>
         </div>

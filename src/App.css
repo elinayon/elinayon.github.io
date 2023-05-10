@@ -4,8 +4,7 @@
 }
 
 .App {
-  /* background-color: #fffde8  ; */
-  /* height: 100vh; */
+  background-color: #fffde8  ;
   min-height: 100%; 
   display: flex;
   flex-flow: column; 
@@ -23,7 +22,7 @@
 }
 
 .App .App-footer {
-  background-color: #fff0be;
+  /* background-color: #fff0be; */
   height: min-content;
   position:fixed;
   bottom:0;
