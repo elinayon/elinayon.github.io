@@ -4,7 +4,7 @@ import DisplayBox from './Components/DisplayBox';
 import PaginationFooter from './Components/PaginationFooter';
 import gsap from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from './Components/libraries';
-import ParallaxBody, { InitIntro, InitHeader, Slides }  from './Components/ParallaxBody';
+import ParallaxBody, { InitIntro, InitHeader, Slides, Slides1 }  from './Components/ParallaxBody';
 // import Slides from './Components/Slides';
 
 

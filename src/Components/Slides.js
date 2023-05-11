@@ -13,12 +13,12 @@ export default function Slides() {
         let ctx = gsap.context((self) => {
             let slides = gsap.utils.toArray(".slide");
             gsap
-                // .timeline({
-                //     scrollTrigger: {
-                //         trigger: slider.current,
-                //         start: "40% 50%", // position of trigger meets the scroller position
-                //     }
-                // })
+                .timeline({
+                    scrollTrigger: {
+                        trigger: slider.current,
+                        start: "40% 50%", // position of trigger meets the scroller position
+                    }
+                })
                 // .from(self.selector('.col__content-title'), {
                 //     ease: "power4",
                 //     x: "+=5vh",
@@ -56,14 +56,7 @@ export default function Slides() {
     return (
         <div className="Slides" ref={component}>
             <div ref={slider} className="container">
-                <div className="description blue slide">
-                    <div>
-                        SCROLL DOWN
-                        <div className="scroll-down">
-                            <div className="arrow"></div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div className="slide red">ONE</div>
                 <div className="slide orange">TWO</div>
                 <div className="slide purple">THREE</div>
