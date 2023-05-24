@@ -135,10 +135,10 @@ a {
 }
 
 .intro__title {
-  font-size: 25vw;
+  font-size: calc(25 * (1vw + 1vh)/2);
   overflow: hidden;
   letter-spacing: -2.3vw;
-  padding-right: 2.3vw;
+  /* padding-right: 2.3vw; */
   z-index: 1;
 }
 
@@ -157,23 +157,15 @@ a {
 
 .intro__img {
   position: absolute;
-  max-height: 40vh;
   max-width: 70vw;
-  /* width: 35%; */
-  /* max-width: 390px; */
-  /* height: auto; */
-}
-
-@media all {
-  .intro__img {
-    width: 80vw;
-  }
+  width: 70vw;
+  height: auto;
 }
 
 .intro__img--1 {
   z-index: 3;
   left: 5vw;
-  bottom: 30%;
+  bottom: 20%;
 }
 
 @media all and (max-width: 768px) {

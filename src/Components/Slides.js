@@ -182,7 +182,7 @@ const IntroSlide = () => {
                     </p>
                 </div>
             </div>
-            <img className="intro__img intro__img--1" src="elina_bear_clear.png" />
+            <img className="intro__img intro__img--1" src="elina_bear_clear.png" width="6000" height="4000"/>
         </section>
 
     );
