@@ -11,7 +11,9 @@ export {
     Step, 
     StepLabel, 
     StepConnector, 
-    stepConnectorClasses 
+    stepConnectorClasses,
+    Menu,
+    MenuItem
 } from '@mui/material/';
 export {
     Timeline, 
