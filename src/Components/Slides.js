@@ -106,11 +106,13 @@ const Header = () => {
                 }}
             >
                 <MenuItem
+                    style={{fontFamily: "serif"}}
                     onClick={() =>
                         openLink("https://drive.google.com/file/d/1Y0FGDooIDGQsstyGfsRzhqMZfzeZBwJ3/view?usp=share_link")}>
                     Cover Letter
                 </MenuItem>
                 <MenuItem
+                    style={{fontFamily: "serif"}}
                     onClick={() =>
                         openLink("https://drive.google.com/file/d/1qa6eRQYLICzy9wftr7ka8a43m8_N5Tuy/view?usp=share_link")}>
                     Resume
@@ -210,48 +212,6 @@ function Slides() {
                         end: slide.offsetWidth
                     }
                 })
-                    //     .from(slider.current.querySelector('.col__content-title'), {
-                    //         x: 0,
-                    //         duration: 3,
-                    //         ease: "power4"
-                    //     })
-                    //     .from(slider.current.querySelector('.col__content-txt'), {
-                    //         y: 0,
-                    //         duration: 3,
-                    //         ease: "power4"
-                    //     })
-                    //     .from(slider.current.querySelector('.col__image-wrap'), {
-                    //         x: "-50vw",
-                    //         duration: 5,
-                    //         ease: "power4"
-                    //     });
-                    // gsap
-                    //     .timeline(
-                    //         {
-                    //             duration: 3,
-                    //             scrollTrigger: {
-                    //                 trigger: slider.current,
-                    //                 markers: true,
-                    //                 scrub: 1,
-                    //                 start: "top bottom",
-                    //                 end: () => "+=" + slider.current.offsetWidth
-                    //             }
-                    //         })
-                    //     .to(slider.current.querySelectorAll('.col__content-title'), {
-                    //         x: "-8vw",
-                    //         duration: 3,
-                    //         ease: "power4"
-                    //     })
-                    //     .to(slider.current.querySelectorAll('.col__content-txt'), {
-                    //         y: "5vh",
-                    //         duration: 3,
-                    //         ease: "power4"
-                    //     })
-                    //     .to(slider.current.querySelectorAll('.col__image-wrap'), {
-                    //         x: "-10vw",
-                    //         duration: 5,
-                    //         ease: "power4"
-                    //     });
                     .fromTo(slide.querySelectorAll('.col__content-title'), {
                         x: 0
                     }, {
@@ -403,6 +363,9 @@ function Slides() {
                         <p className="content__end-txt">
                             Check out my LinkedIn and GitHub profiles!
                         </p>
+                        <div className="col__image-wrap transform_up">
+                            <img className="img" src="teddy_bye.jpeg" />
+                        </div>
                     </div>
                 </div>
             </div>
