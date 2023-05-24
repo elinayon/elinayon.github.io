@@ -125,7 +125,9 @@ a {
 .intro__content {
   position: absolute;
   /* right: 8%; */
-  bottom: 30%;
+  width: 90%;
+  height: 62%;
+  bottom: 25%;
 }
 
 @media all and (max-width: 768px) {
@@ -156,16 +158,17 @@ a {
 }
 
 .intro__img {
-  position: absolute;
-  max-width: 70vw;
-  width: 70vw;
-  height: auto;
+  /* position: absolute; */
+  max-width: 78%;
+  /* height: auto;  */
+  max-height: 90%;
+  object-fit: contain;
 }
 
 .intro__img--1 {
   z-index: 3;
-  left: 5vw;
-  bottom: 20%;
+  /* left: 5vw; */
+  /* bottom: 20%; */
 }
 
 @media all and (max-width: 768px) {
@@ -191,7 +194,7 @@ a {
 .intro__txt {
   top: -2vh;
   max-width: 20vw;
-  margin-left: 72vw;
+  margin-left: 72%;
   position: relative;
   background: rgba(255, 253, 232, 0.3);
   font-size: 2vw;
@@ -366,7 +369,7 @@ a {
       ========================================================================== */
 .col__content-title {
   /* margin: 0 2vw 0; */
-  font-size: 11vw;
+  font-size: calc(11 * (1vh + 1vw)/2);
   letter-spacing: -0.8vw;
   position: fixed;
   top: 15vh;
@@ -382,7 +385,7 @@ a {
 
 .col__content-title-centered {
   /* margin: 0 2vw 0; */
-  font-size: 11vw;
+  font-size: calc(11 * (1vh + 1vw)/2);
   letter-spacing: -0.8vw;
   position: fixed;
   top: 15vh;
