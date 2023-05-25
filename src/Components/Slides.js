@@ -114,7 +114,7 @@ const Header = () => {
                 <MenuItem
                     style={{fontFamily: "serif"}}
                     onClick={() =>
-                        openLink("https://drive.google.com/file/d/1qa6eRQYLICzy9wftr7ka8a43m8_N5Tuy/view?usp=share_link")}>
+                        openLink("https://drive.google.com/file/d/1TCHsAmfyuVZAyfc4LBAueKk72AhzBPju/view?usp=share_link")}>
                     Resume
                 </MenuItem>
             </Menu>
@@ -351,7 +351,7 @@ function Slides() {
                                     Dec 2017 - May 2019 <br />
                                     Utilizing Google search data to analyze correlations between Google search behavior and
                                     women's reproductive rights laws between US states.
-                                    Published <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7241764/">research papers</a>
+                                    Published <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7241764/">research papers </a>
                                     describing the methodology used to produce the research and the analyses. <br />
                                     <a href="https://orcid.org/0000-0002-0811-0664">Orcid link here</a>.
 
